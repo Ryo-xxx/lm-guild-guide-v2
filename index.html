@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ローモバ初心者向け 採取効率ガイド</title>
+  <meta name="description" content="ロードモバイル初心者向けの採取効率ガイド。第1〜第2部隊メイン、資源地レベル1〜3向けの兵士数・採取量・採取時間を確認できます。">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menuBtn" id="openMenu" aria-label="メニューを開く" type="button">
+      <span class="menuIcon"><i></i><i></i><i></i></span>
+    </button>
+    <div class="brand">
+      <div class="logo">LM</div>
+      <div class="brandText">
+        <strong>ローモバ初心者向け 採取効率ガイド</strong>
+        <span>第1〜第2部隊メイン / 資源地レベル1〜3 / ギルド共有用</span>
+      </div>
+    </div>
+    <div class="topMeta">
+      <span class="pill">スマホ対応</span>
+      <span class="pill">画像差し替え対応</span><span class="pill">v4 兵士数別：全兵士表示</span>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="drawer" aria-label="ページメニュー">
+    <div class="drawerHead">
+      <div class="drawerTitle">
+        <strong>ページ移動</strong>
+        <span>知りたい項目を選んで移動</span>
+      </div>
+      <button class="closeBtn" id="closeMenu" aria-label="閉じる" type="button">×</button>
+    </div>
+
+    <div class="navGroup">
+      <div class="navLabel">まず読む</div>
+      <a href="#home" class="navLink active"><span class="navIcon">🌾</span><span>採取の結論</span></a>
+      <a href="#flow" class="navLink"><span class="navIcon">🧭</span><span>初心者の採取手順</span></a>
+      <a href="#calculator" class="navLink"><span class="navIcon">🧮</span><span>採取計算ツール</span></a>
+    </div>
+
+    <div class="navGroup">
+      <div class="navLabel">早見表</div>
+      <a href="#tables" class="navLink"><span class="navIcon">📊</span><span>採取量・時間・必要兵数</span></a>
+      <a href="#troops" class="navLink"><span class="navIcon">⚔️</span><span>兵士構成</span></a>
+      <a href="#boosts" class="navLink"><span class="navIcon">⚡</span><span>採取速度・資源所持量</span></a>
+    </div>
+
+    <div class="navGroup">
+      <div class="navLabel">ギルド共有</div>
+      <a href="#rules" class="navLink"><span class="navIcon">🛡️</span><span>初心者向け注意点</span></a>
+      <a href="#sources" class="navLink"><span class="navIcon">🔎</span><span>前提・参照情報</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="page active" id="home">
+      <div class="hero heroCinematic">
+        <div class="heroGrid">
+          <div>
+            <span class="eyebrow">ロードモバイル 採取ガイド</span>
+            <h1 class="heroHeadline">
+              <span class="heroLine heroLineTop">初心者向け</span>
+              <span class="heroLine heroLineBottom"><span class="headlineGold">採取効率</span><span class="headlineAccent">ガイド</span></span>
+            </h1>
+            <p class="heroSub">
+              この資料は、ギルドメンバーが迷わず採取できるように、<strong>第1〜第2部隊メイン</strong>、<strong>資源地レベル1〜3中心</strong>で作った早見表つきガイドです。
+              「何人送ればどれくらい採れるか」「何分くらいで戻るか」「どの兵士を送るべきか」を、ゲーム内で使いやすい日本語名称でまとめています。
+            </p>
+            <div class="kpiGrid">
+              <div class="kpi"><small>普段用</small><strong>第1部隊バリスタ</strong></div>
+              <div class="kpi"><small>早く着きたい時</small><strong>第1部隊ランサー</strong></div>
+              <div class="kpi"><small>主な資源地</small><strong>レベル1〜3</strong></div>
+              <div class="kpi"><small>初心者ルール</small><strong>残さず空にする</strong></div>
+            </div>
+          </div>
+
+          <div class="statPanel">
+            <div class="statCard">
+              <b>兵士を増やしても採取速度は上がらない</b>
+              <span>兵士数で増えるのは、部隊が持ち帰れる資源量の上限です。</span>
+            </div>
+            <div class="statCard">
+              <b>採取時間を短くするのは採取速度アップ</b>
+              <span>研究、才能、装備、召喚獣、採取速度ブーストが効きます。</span>
+            </div>
+            <div class="statCard">
+              <b>少ない兵で空にしたいなら資源所持量アップ</b>
+              <span>資源所持量は採取速度ではなく、必要兵数を減らす効果です。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sectionTitle">
+        <div>
+          <h2>最初の結論</h2>
+          <p>初心者は細かく悩むより、この3パターンだけ覚えれば十分です。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span4">
+          <span class="badge gold">普段の基本</span>
+          <h3>第1部隊バリスタ中心</h3>
+          <p>資源所持量が高く、倒されても補充が軽いので、普段の採取に向いています。資源地レベル1〜3ならまずこれで大丈夫です。</p>
+        </article>
+        <article class="card span4">
+          <span class="badge accent">遠い資源地</span>
+          <h3>第1部隊ランサー中心</h3>
+          <p>移動が速いので、遠い資源地や取り合いになりそうな時に使います。ただし資源所持量は低めです。</p>
+        </article>
+        <article class="card span4">
+          <span class="badge rose">安全な時だけ</span>
+          <h3>第2部隊カタパルト</h3>
+          <p>第1部隊バリスタより資源所持量が高いです。ただし失った時の補充は少し重くなるので、安全な時だけ使うのが無難です。</p>
+        </article>
+        <article class="card span12">
+          <div class="callout warn"><b>一番大事：</b>「採取速度」と「資源所持量」は別物です。採取速度は掘る時間を短くし、資源所持量は持ち帰れる量を増やします。兵士を多く送っても採取速度自体は上がりません。</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="flow">
+      <div class="sectionTitle">
+        <div>
+          <h2>初心者の採取手順</h2>
+          <p>ギルドメンバーにそのまま伝えるなら、この順番が一番わかりやすいです。</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="step"><div class="stepNum">1</div><div class="stepBody"><h3>近くの資源地レベル1〜3を選ぶ</h3><p>最初は遠くの高レベル資源地より、近場のレベル1〜3を回したほうが安全で続けやすいです。</p></div></div>
+        <div class="step"><div class="stepNum">2</div><div class="stepBody"><h3>資源地を空にできる兵数を確認</h3><p>この資料の計算ツールか必要兵数表を使って、資源が残らない人数を送ります。</p></div></div>
+        <div class="step"><div class="stepNum">3</div><div class="stepBody"><h3>ロードは出さない</h3><p>採取中に攻撃されると、ロードを捕まえられる危険があります。初心者はロードなしが安全です。</p></div></div>
+        <div class="step"><div class="stepNum">4</div><div class="stepBody"><h3>戻ってきたらすぐ次を出す</h3><p>採取部隊を止めないことが一番大事です。建設や研究で足りない資源を優先して集めます。</p></div></div>
+      </div>
+
+      <div class="sectionTitle">
+        <div>
+          <h2>資源別のざっくり優先度</h2>
+          <p>城上げ中の初心者が困りやすい資源を優先します。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span3"><h3>石材</h3><p>建設で不足しやすいです。初心者はかなり使うので優先度高め。</p></article>
+        <article class="card span3"><h3>木材</h3><p>建物でも研究でもよく使います。石材とセットで集めると安定します。</p></article>
+        <article class="card span3"><h3>鉱石</h3><p>兵士訓練や研究で減りやすいです。足りない時は早めに集めます。</p></article>
+        <article class="card span3"><h3>食糧・ゴールド</h3><p>食糧は兵士維持で減りやすく、ゴールドは研究で使います。必要な時だけ狙ってもOKです。</p></article>
+      </div>
+    </section>
+
+    <section class="page" id="calculator">
+      <div class="sectionTitle">
+        <div>
+          <h2>採取計算ツール</h2>
+          <p>兵士数を入力すると、持ち帰れる量、採取時間、往復込みの時間、資源地を空にする必要兵数を計算します。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <form class="card span7" id="calcForm">
+          <h3>条件を入力</h3>
+          <div class="calcTwoRows">
+            <div class="calcRow">
+              <label><span>資源の種類</span><select id="resourceSelect"></select></label>
+              <label><span>資源地レベル</span><select id="levelSelect"></select></label>
+            </div>
+            <div class="calcRow">
+              <label><span>兵士</span><select id="troopSelect"></select></label>
+              <label><span>送る兵士数</span><input id="troopCount" type="number" min="1" step="100" value="30000"></label>
+            </div>
+            <div class="calcRow">
+              <label><span>採取速度アップ率</span><input id="gatherBonus" type="number" min="0" step="1" value="100"></label>
+              <label><span>資源所持量アップ率</span><input id="loadBonus" type="number" min="0" step="1" value="0"></label>
+            </div>
+            <div class="calcRow singleAction">
+              <label><span>片道の移動時間（分）</span><input id="oneWayMinutes" type="number" min="0" step="1" value="5"></label>
+              <div class="calcActions"><button class="miniBtn" id="resetButton" type="button">初期値に戻す</button></div>
+            </div>
+          </div>
+        </form>
+
+        <aside class="card span5 resultCard" aria-live="polite">
+          <span class="badge accent">計算結果</span>
+          <h3 id="resultTitle">第1部隊バリスタで採取</h3>
+          <div class="resultBox">
+            <div class="resultLine"><span>資源地の総量</span><strong id="tileAmount">-</strong></div>
+            <div class="resultLine"><span>部隊の持ち帰り上限</span><strong id="capacityAmount">-</strong></div>
+            <div class="resultLine"><span>実際に採れる量</span><strong id="actualAmount">-</strong></div>
+            <div class="resultLine"><span>採取だけの時間</span><strong id="gatherTime">-</strong></div>
+            <div class="resultLine"><span>往復込みの目安</span><strong id="totalTime">-</strong></div>
+            <div class="resultLine total"><span>空にする必要兵数</span><strong id="requiredTroops">-</strong></div>
+            <small id="resultNote"></small>
+          </div>
+        </aside>
+
+
+        <div class="span12 sectionMiniTitle partialSectionTitle">
+          <span class="badge rose">残量計算</span>
+          <div>
+            <h3 id="partialCalcTitle">中途半端に残っている資源地の採取時間</h3>
+            <p>すでに誰かが少し採取していて、残りが26万や30万になっている資源地用です。兵士と兵数も選ぶと、実際に持ち帰れる量まで含めて計算します。</p>
+          </div>
+        </div>
+
+        <form class="card span7" id="partialCalcForm" aria-labelledby="partialCalcTitle">
+          <h3>残量計算の条件を入力</h3>
+          <div class="calcTwoRows">
+            <div class="calcRow">
+              <label><span>資源の種類</span><select id="partialResourceSelect"></select></label>
+              <label><span>資源地レベル</span><select id="partialLevelSelect"></select></label>
+            </div>
+            <div class="calcRow">
+              <label><span>兵士</span><select id="partialTroopSelect"></select></label>
+              <label><span>送る兵士数</span><input id="partialTroopCount" type="number" min="1" step="100" value="30000"></label>
+            </div>
+            <div class="calcRow">
+              <label><span>残っている資源量</span><input id="partialAmount" type="number" min="1" step="1000" value="260000"></label>
+              <label><span>採取速度アップ率</span><input id="partialGatherBonus" type="number" min="0" step="1" value="100"></label>
+            </div>
+            <div class="calcRow">
+              <label><span>資源所持量アップ率</span><input id="partialLoadBonus" type="number" min="0" step="1" value="0"></label>
+              <label><span>片道の移動時間（分）</span><input id="partialOneWayMinutes" type="number" min="0" step="1" value="5"></label>
+            </div>
+            <div class="calcRow singleAction">
+              <div></div>
+              <div class="calcActions"><button class="miniBtn" id="fillPartialMaxButton" type="button">最大量を入れる</button></div>
+            </div>
+          </div>
+        </form>
+
+        <aside class="card span5 resultCard" aria-live="polite">
+          <span class="badge rose">残量計算結果</span>
+          <h3 id="partialResultTitle">第1部隊バリスタで残量を採取</h3>
+          <div class="resultBox">
+            <div class="resultLine"><span>資源地の最大量</span><strong id="partialTileMax">-</strong></div>
+            <div class="resultLine"><span>入力した残量</span><strong id="partialActualAmount">-</strong></div>
+            <div class="resultLine"><span>部隊の持ち帰り上限</span><strong id="partialCapacityAmount">-</strong></div>
+            <div class="resultLine"><span>実際に採れる量</span><strong id="partialGatherableAmount">-</strong></div>
+            <div class="resultLine"><span>採取後に残る量</span><strong id="partialRemainingAfter">-</strong></div>
+            <div class="resultLine"><span>残量の割合</span><strong id="partialRate">-</strong></div>
+            <div class="resultLine"><span>採取だけの時間</span><strong id="partialGatherTime">-</strong></div>
+            <div class="resultLine"><span>往復込みの目安</span><strong id="partialTotalTime">-</strong></div>
+            <div class="resultLine total"><span>残量を空にする必要兵数</span><strong id="partialRequiredTroops">-</strong></div>
+            <small id="partialNote"></small>
+          </div>
+        </aside>
+
+        <article class="card span12">
+          <h3>計算式</h3>
+          <div class="formulaGrid">
+            <div class="formula"><b>持ち帰り上限</b><span>兵士数 × 兵士1人の資源所持量 × (1 + 資源所持量アップ率 ÷ 100)</span></div>
+            <div class="formula"><b>採取時間</b><span>資源地を空にする時間 × (実際に採る量 ÷ 資源地の総量)</span></div>
+            <div class="formula"><b>往復込み</b><span>採取時間 + 片道移動時間（分） × 2</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="tables">
+      <div class="sectionTitle">
+        <div>
+          <h2>採取量・時間・必要兵数 早見表</h2>
+          <p>基本は第1〜第2部隊メインですが、兵士数別の採取量は第1〜第3部隊すべてを表示します。</p>
+        </div>
+      </div>
+
+      <article class="card">
+        <div class="miniTabs" role="tablist" aria-label="早見表の切り替え">
+          <button class="miniTabBtn active" data-table="time" type="button">採取時間</button>
+          <button class="miniTabBtn" data-table="needed" type="button">空にする必要兵数</button>
+          <button class="miniTabBtn" data-table="carry" type="button">兵士1人の資源所持量</button>
+          <button class="miniTabBtn" data-table="amount" type="button">兵士数別の採取量</button>
+        </div>
+        <div id="tableArea"></div>
+      </article>
+    </section>
+
+    <section class="page" id="troops">
+      <div class="sectionTitle">
+        <div>
+          <h2>兵士構成</h2>
+          <p>第3部隊まで解放済みでも、初心者採取は第1〜第2部隊メインで十分です。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span4"><span class="badge gold">おすすめ</span><h3>第1部隊バリスタ</h3><p>資源所持量が高く、補充が軽いです。普段の採取はこれが一番扱いやすいです。</p></article>
+        <article class="card span4"><span class="badge accent">速度重視</span><h3>第1部隊ランサー</h3><p>移動が速いです。遠い資源地へ先に着きたい時に使います。</p></article>
+        <article class="card span4"><span class="badge rose">安全時</span><h3>第2部隊カタパルト</h3><p>資源所持量は高いですが、倒された時の補充は第1部隊より重いです。</p></article>
+
+        <article class="card span12">
+          <h3>混ぜる時の注意</h3>
+          <p>移動速度は、部隊の中で遅い兵士に引っ張られます。早く着きたいならランサーだけ、たくさん持ち帰りたいならバリスタだけ、というように目的を分けると失敗しにくいです。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="boosts">
+      <div class="sectionTitle">
+        <div>
+          <h2>採取速度・資源所持量アップ</h2>
+          <p>採取を効率化する要素を、初心者向けに言い換えてまとめています。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span6">
+          <h3>採取速度アップ</h3>
+          <p>資源地で掘る時間を短くします。採取時間を減らしたいならここを上げます。</p>
+          <div class="checklist">
+            <div class="check">研究：資源採取 I / II / III</div>
+            <div class="check">才能：採取 I / 採取 II</div>
+            <div class="check">装備：ノセロスの仮面、ライトニングガード、エレクトリックランスなど</div>
+            <div class="check">召喚獣：ゴブリンの採取速度アップ</div>
+            <div class="check">アイテム：採取速度ブースト</div>
+          </div>
+        </article>
+
+        <article class="card span6">
+          <h3>資源所持量アップ</h3>
+          <p>少ない兵士で資源地を空にしやすくします。採取時間そのものは短くなりません。</p>
+          <div class="checklist">
+            <div class="check">研究：重量訓練 I / II / III</div>
+            <div class="check">才能：最大積載量 I / 最大積載量 II</div>
+            <div class="check">装備：資源所持量が上がる採取装備</div>
+            <div class="check">兵士：攻城兵器は資源所持量が高い</div>
+          </div>
+        </article>
+
+        <article class="card span12">
+          <div class="callout accent"><b>装備の注意：</b>採取装備は、部隊が資源地に到着するまで装備したままにします。到着後に戦闘装備などへ戻す運用が安全です。</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="rules">
+      <div class="sectionTitle">
+        <div>
+          <h2>初心者向け注意点</h2>
+          <p>ギルド内で揉めにくく、安全に採取するための最低限ルールです。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span6"><h3>資源地はなるべく空にする</h3><p>少しだけ残すと、次の資源地が湧きにくくなります。必要兵数を見て、空にできる人数を送ります。</p></article>
+        <article class="card span6"><h3>ロードは採取に出さない</h3><p>採取部隊が攻撃されると、ロードを捕まえられる危険があります。初心者はロードなしが安全です。</p></article>
+        <article class="card span6"><h3>先に向かっている人がいたら避ける</h3><p>同じ資源地へ向かう矢印が見えたら、基本は別の資源地を選びます。</p></article>
+        <article class="card span6"><h3>病院の空きを確認する</h3><p>採取中に攻撃された時、病院がいっぱいだと損失が重くなります。兵士を出しすぎないことも大事です。</p></article>
+      </div>
+    </section>
+
+    <section class="page" id="sources">
+      <div class="sectionTitle">
+        <div>
+          <h2>前提・参照情報</h2>
+          <p>数値は目安です。アップデートで変わる可能性があるため、最終確認はゲーム内表示を優先してください。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span6">
+          <h3>この資料の前提</h3>
+          <div class="checklist">
+            <div class="check">兵士は第3部隊まで解放済み想定。</div>
+            <div class="check">普段使う兵士は第1〜第2部隊メイン。</div>
+            <div class="check">採取先は資源地レベル1〜3中心。</div>
+            <div class="check">採取時間は採取速度アップ率で逆算した目安。</div>
+          </div>
+        </article>
+        <article class="card span6">
+          <h3>主な参照情報</h3>
+          <ul class="sourceList">
+            <li><a href="https://lordsmobile.fandom.com/wiki/Gathering" target="_blank" rel="noreferrer">採取の仕様確認</a></li>
+            <li><a href="https://lordsmobile.fandom.com/wiki/Troop" target="_blank" rel="noreferrer">兵士ごとの資源所持量確認</a></li>
+            <li><a href="https://marksangryreview.com/gathering-resources/" target="_blank" rel="noreferrer">資源地ごとの量と採取時間表</a></li>
+            <li><a href="https://romoba.hatenablog.jp/entry/2021/01/30/153013" target="_blank" rel="noreferrer">日本語の兵士名確認</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="footer">
+        このページはギルド共有用の静的HTMLです。数値がゲーム内と違う場合はゲーム内を優先してください。
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
